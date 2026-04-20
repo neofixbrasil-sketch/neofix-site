@@ -1,1 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoFix Brasil - A Evolução do Reparo Eletrônico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-dark-secondary: #1a1a1a;
+            --neon-pink: #ff00ff;
+            --neon-cyan: #00ffff;
+            --text-light: #ffffff;
+            --text-gray: #b0b0b0;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, #000000 100%);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,0,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0,255,255,0.1) 0%, transparent 50%),
+                linear-gradient(135deg, var(--bg-dark) 0%, #000000 100%);
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px var(--neon-pink)); }
+            to { filter: drop-shadow(0 0 30px var(--neon-cyan)); }
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+            color: var(--bg-dark);
+            text-decoration: none;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            box-shadow: 
+                0 0 30px rgba(255, 0, 255, 0.5),
+                0 0 60px rgba(0, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .whatsapp-btn:hover::before {
+            left: 100%;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 
+                0 10px 40px rgba(255, 0, 255, 0.6),
+                0 0 80px rgba(0, 255, 255, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Orbitron', monospace;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.5),
+                0 0 40px rgba(255, 0, 255, 0.3);
+            border-color: var(--neon-cyan);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 2rem;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-grid {
+            max-width: 1200px;
+            margin: 4rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 0, 255, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-dark-secondary);
+            padding: 3rem 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--neon-cyan);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--neon-cyan);
+            margin-right: 1rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .whatsapp-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .services {
+                padding: 80px 1rem;
+            }
+        }
+
+        /* Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--neon-pink), var(--neon-cyan));
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">NEO<span style="color: var(--neon-cyan);">FIX</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>A EVOLUÇÃO DO REPARO ELETRÔNICO</h1>
+        <a href="https://wa.me/5544999187298?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20reparo%20eletrônico!" 
+           class="whatsapp-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Solicitar Orçamento
+        </a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2 class="section-title">NOSSOS SERVIÇOS</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3>Reparo de Placas</h3>
+                <p>Reballing BGA, recuperação de dados, solda em microcomponentes e diagnóstico avançado.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h3>Manutenção de PCs</h3>
+                <p>Upgrade completo, limpeza profunda, otimização gamer e recuperação de sistema.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tv"></i>
+                </div>
+                <h3>Conserto de Monitores</h3>
+                <p>Reparo de painéis LCD/LED, troca de backlight e recuperação de imagem.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <h3>Periféricos Gamer</h3>
+                <p>Teclados mecânicos, mouses RGB, headsets e controllers de alta performance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="services" style="padding-top: 0;">
+            <h2 class="section-title">PORTFÓLIO - ANTES E DEPOIS</h2>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item" style="background: linear-gradient(45deg, #ff4757, #ff00ff);">
+                Placa-mãe Queimada → 100% Funcional
+            </div>
+            <div class="portfolio-item" style="background: linear-gradient(45deg, #3742fa, #00ffff);">
+                PC Gamer Travando → 240+ FPS
+            </div>
+            <div class="portfolio-item" style="background: linear-gradient(45deg, #2ed573, #ff00ff);">
+                Monitor com Manchas → Imagem Perfeita
+            </div>
+            <div class="portfolio-item" style="background: linear-gradient(45deg, #ffa502, #00ffff);">
+                Teclado Mecânico → Como Novo
+            </div>
+            <div class="portfolio-item" style="background: linear-gradient(45deg, #ff6b7a, #ff00ff);">
+                Console Dead → Roda Tudo
+            </div>
+            <div class="portfolio-item" style="background: linear-gradient(45deg, #00d2d3, #ff00ff);">
+                Notebook Esquentando → Performance Máxima
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>WhatsApp</strong><br>
+                        (44) 99918-7298
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Atendimento</strong><br>
+                        Todo Brasil via Correios
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <strong>Horário</strong><br>
+                        Seg-Sex: 8h às 20h
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 NeoFix Brasil. Atendemos via Correios para todo o Brasil. <i class="fas fa-shipping-fast"></i></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
