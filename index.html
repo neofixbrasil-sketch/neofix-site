@@ -1,18 +1,18 @@
-"<!DOCTYPE html>
-<html lang=\"pt-BR\">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-<meta charset=\"UTF-8\" />
-<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>NeoFix Brasil — Conserto + Customização de Eletrônicos</title>
-<meta name=\"description\" content=\"NeoFix Brasil — Assistência técnica multimarcas para qualquer eletrônico e loja de itens modificados/customizados. Atendemos via Correios para todo o Brasil.\" />
+<meta name="description" content="NeoFix Brasil — Assistência técnica multimarcas para qualquer eletrônico. Atendemos via Correios para todo o Brasil. Em pré-lançamento 2025." />
 
 <!-- Fonts -->
-<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">
-<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>
-<link href=\"https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap\" rel=\"stylesheet\">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Font Awesome -->
-<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css\" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
 <style>
   /* ============ RESET / BASE ============ */
@@ -33,6 +33,7 @@
     --cyan: #22d3ee;
     --shadow-pink: 0 0 28px rgba(255, 30, 136, 0.55);
     --shadow-blue: 0 0 28px rgba(30, 123, 255, 0.55);
+    --coming-soon: #ff6b35;
   }
 
   html { scroll-behavior: smooth; }
@@ -48,7 +49,7 @@
 
   /* Animated background grid */
   body::before {
-    content: \"\";
+    content: "";
     position: fixed;
     inset: 0;
     background-image:
@@ -60,7 +61,7 @@
     mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
   }
   body::after {
-    content: \"\";
+    content: "";
     position: fixed;
     inset: 0;
     background:
@@ -84,7 +85,7 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(5, 5, 10, 0.75);
+    background: rgba(5, 5, 10, 0.95);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
@@ -118,6 +119,23 @@
     letter-spacing: 3px;
   }
 
+  .beta-badge {
+    background: var(--coming-soon);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Orbitron', sans-serif;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
   .nav-links {
     display: flex;
     list-style: none;
@@ -136,7 +154,7 @@
   }
   .nav-links a:hover { color: var(--blue-soft); }
   .nav-links a::after {
-    content: \"\";
+    content: "";
     position: absolute;
     left: 0; bottom: 0;
     width: 0; height: 2px;
@@ -176,7 +194,7 @@
     overflow: hidden;
   }
   .btn-primary::before {
-    content: \"\";
+    content: "";
     position: absolute;
     inset: 0;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
@@ -210,6 +228,14 @@
     transform: translateY(-3px);
   }
 
+  .btn-coming-soon {
+    background: linear-gradient(135deg, var(--coming-soon), #e55a2b);
+    border: none;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
   /* ============ HERO ============ */
   .hero { position: relative; padding: 90px 0 110px; overflow: hidden; }
   .hero-grid {
@@ -241,10 +267,6 @@
     background: var(--blue);
     box-shadow: 0 0 12px var(--blue);
     animation: pulse 1.6s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.4); opacity: .6; }
   }
 
   .hero h1 {
@@ -290,7 +312,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-  .hero-stats .stat:nth-child(1) strong { color: var(--pink); }
+  .hero-stats .stat:nth-child(1) strong { color: var(--coming-soon); }
   .hero-stats .stat:nth-child(2) strong { color: var(--blue-soft); }
   .hero-stats .stat:nth-child(3) strong { color: #fff; }
 
@@ -338,29 +360,10 @@
     50% { transform: scale(1.08); }
   }
 
-  .hero-visual .chip {
-    position: absolute;
-    padding: 8px 16px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    backdrop-filter: blur(10px);
-    border-radius: 999px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    color: var(--blue-soft);
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .hero-visual .chip.c1 { top: 8%; left: -6%; }
-  .hero-visual .chip.c2 { bottom: 14%; right: -4%; color: var(--pink); border-color: rgba(255,30,136,0.4); }
-  .hero-visual .chip.c3 { top: 52%; left: -12%; color: var(--pink-soft); border-color: rgba(255,30,136,0.3); }
-  .hero-visual .chip.c4 { top: 20%; right: -2%; color: var(--blue-soft); border-color: rgba(30,123,255,0.4); }
-
   /* ============ SECTION COMMON ============ */
   .section { padding: 100px 0; position: relative; }
 
-  .section-head { max-width: 720px; margin-bottom: 56px; }
+  .section-head { max-width: 720px; margin-bottom: 56px; text-align: center; }
   .section-head .eyebrow { margin-bottom: 18px; }
   .section-head h2 {
     font-family: 'Orbitron', sans-serif;
@@ -373,6 +376,49 @@
   .section-head h2 .accent-p { color: var(--pink); text-shadow: var(--shadow-pink); }
   .section-head h2 .accent-b { color: var(--blue-soft); text-shadow: var(--shadow-blue); }
   .section-head p { color: var(--text-dim); font-size: 1.05rem; }
+
+  /* ============ COMING SOON CARDS ============ */
+  .coming-soon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+  }
+
+  .coming-card {
+    text-align: center;
+    padding: 50px 30px;
+    border: 2px dashed rgba(255, 107, 53, 0.5);
+    border-radius: 24px;
+    background: rgba(255, 107, 53, 0.05);
+    transition: all .3s ease;
+  }
+  .coming-card:hover {
+    border-style: solid;
+    border-color: var(--coming-soon);
+    background: rgba(255, 107, 53, 0.1);
+    transform: translateY(-5px);
+  }
+
+  .coming-card i {
+    font-size: 4rem;
+    color: var(--coming-soon);
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+  }
+
+  .coming-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .coming-card p {
+    color: var(--text-dim);
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
 
   /* ============ SERVICES GRID ============ */
   .services-grid {
@@ -391,7 +437,7 @@
     transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
   }
   .service-card::before {
-    content: \"\";
+    content: "";
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
@@ -405,7 +451,6 @@
     box-shadow: 0 20px 60px rgba(30, 123, 255, 0.15);
   }
   .service-card:hover::before { opacity: 1; }
-  .service-card:nth-child(even):hover { border-color: rgba(255, 30, 136, 0.35); box-shadow: 0 20px 60px rgba(255, 30, 136, 0.15); }
 
   .service-icon {
     width: 54px;
@@ -414,1071 +459,4 @@
     display: grid;
     place-items: center;
     font-size: 1.4rem;
-    margin-bottom: 18px;
-    background: rgba(30, 123, 255, 0.1);
-    color: var(--blue-soft);
-    border: 1px solid rgba(30, 123, 255, 0.3);
-    box-shadow: 0 0 20px rgba(30, 123, 255, 0.15);
-  }
-  .service-card:nth-child(even) .service-icon {
-    background: rgba(255, 30, 136, 0.1);
-    color: var(--pink);
-    border-color: rgba(255, 30, 136, 0.3);
-    box-shadow: 0 0 20px rgba(255, 30, 136, 0.15);
-  }
-
-  .service-card h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-  }
-  .service-card p { color: var(--text-dim); font-size: 0.95rem; }
-
-  /* Universal repair strip */
-  .universal-strip {
-    margin-top: 40px;
-    padding: 24px 30px;
-    border-radius: 16px;
-    background: linear-gradient(90deg, rgba(255,30,136,0.08), rgba(30,123,255,0.08));
-    border: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-  }
-  .universal-strip i {
-    font-size: 1.6rem;
-    color: var(--pink);
-    text-shadow: var(--shadow-pink);
-  }
-  .universal-strip p { font-size: 1rem; color: var(--text); margin: 0; }
-  .universal-strip strong { color: var(--blue-soft); font-family: 'Orbitron', sans-serif; letter-spacing: 1px; }
-
-  /* ============ MOD SHOP ============ */
-  .shop { background: linear-gradient(180deg, transparent, rgba(12, 12, 20, 0.7), transparent); }
-
-  .shop-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 26px;
-  }
-
-  .mod-card {
-    position: relative;
-    background: var(--bg-1);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    overflow: hidden;
-    transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
-    display: flex;
-    flex-direction: column;
-  }
-  .mod-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(255, 30, 136, 0.4);
-    box-shadow: 0 20px 60px rgba(255, 30, 136, 0.2);
-  }
-
-  .mod-thumb {
-    position: relative;
-    aspect-ratio: 4 / 3;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    border-bottom: 1px solid var(--border);
-  }
-  .mod-thumb::before {
-    content: \"\";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(circle at 30% 30%, rgba(255, 30, 136, 0.35), transparent 55%),
-      radial-gradient(circle at 70% 70%, rgba(30, 123, 255, 0.35), transparent 55%),
-      repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0 10px, transparent 10px 20px),
-      #0a0a12;
-  }
-  .mod-thumb i {
-    position: relative;
-    font-size: 4.5rem;
-    color: #fff;
-    opacity: 0.92;
-    filter: drop-shadow(0 0 18px rgba(255, 30, 136, 0.6));
-    z-index: 1;
-  }
-  .mod-card:nth-child(even) .mod-thumb i { filter: drop-shadow(0 0 18px rgba(30, 123, 255, 0.7)); }
-
-  .mod-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--pink);
-    color: var(--pink);
-    z-index: 2;
-    text-transform: uppercase;
-  }
-  .mod-card:nth-child(even) .mod-badge { border-color: var(--blue); color: var(--blue-soft); }
-
-  .mod-sold {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 1.5px;
-    padding: 5px 10px;
-    border-radius: 6px;
-    background: rgba(255,30,136,0.15);
-    border: 1px solid var(--pink);
-    color: #fff;
-    z-index: 2;
-  }
-
-  .mod-body { padding: 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-  .mod-body h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-  }
-  .mod-body p { color: var(--text-dim); font-size: 0.92rem; flex: 1; }
-
-  .mod-foot {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 14px;
-    border-top: 1px dashed var(--border);
-    margin-top: 4px;
-  }
-  .mod-price {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 800;
-    color: var(--pink);
-    font-size: 1.15rem;
-    text-shadow: 0 0 12px rgba(255,30,136,0.5);
-  }
-  .mod-card:nth-child(even) .mod-price { color: var(--blue-soft); text-shadow: 0 0 12px rgba(30,123,255,0.5); }
-
-  .mod-buy {
-    padding: 8px 16px;
-    border-radius: 10px;
-    border: 1px solid var(--pink);
-    color: var(--pink);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.72rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    transition: all .25s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .mod-buy:hover {
-    background: var(--pink);
-    color: #fff;
-    box-shadow: var(--shadow-pink);
-  }
-  .mod-card:nth-child(even) .mod-buy {
-    border-color: var(--blue);
-    color: var(--blue-soft);
-  }
-  .mod-card:nth-child(even) .mod-buy:hover { background: var(--blue); color: #fff; box-shadow: var(--shadow-blue); }
-
-  /* ============ PORTFOLIO ============ */
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 26px;
-  }
-
-  .ba-card {
-    border-radius: 18px;
-    overflow: hidden;
-    border: 1px solid var(--border);
-    background: var(--bg-1);
-    transition: transform .3s ease, border-color .3s ease;
-  }
-  .ba-card:hover { transform: translateY(-4px); border-color: rgba(255,30,136,0.3); }
-
-  .ba-viewport {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    background: linear-gradient(180deg, var(--pink), var(--blue));
-    aspect-ratio: 16 / 10;
-  }
-
-  .ba-half {
-    position: relative;
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-    background: #0a0a10;
-  }
-
-  .ba-half.before {
-    background:
-      radial-gradient(circle at 30% 30%, rgba(120, 0, 60, 0.45), transparent 60%),
-      repeating-linear-gradient(45deg, rgba(255,30,136,0.05) 0 6px, transparent 6px 14px),
-      #0a0a10;
-  }
-  .ba-half.after {
-    background:
-      radial-gradient(circle at 70% 40%, rgba(30, 123, 255, 0.5), transparent 60%),
-      repeating-linear-gradient(-45deg, rgba(30,123,255,0.06) 0 6px, transparent 6px 14px),
-      #080a14;
-  }
-
-  .ba-half i { font-size: 3.2rem; opacity: 0.45; }
-  .ba-half.before i { color: var(--pink); }
-  .ba-half.after i { color: var(--blue-soft); }
-
-  .ba-label {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 2px;
-    padding: 5px 11px;
-    border-radius: 999px;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(8px);
-    border: 1px solid currentColor;
-  }
-  .ba-half.before .ba-label { color: var(--pink); }
-  .ba-half.after .ba-label { color: var(--blue-soft); }
-
-  .ba-caption {
-    padding: 16px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
-  .ba-caption h4 {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 600;
-    font-size: 0.92rem;
-    letter-spacing: 0.5px;
-  }
-  .ba-caption span {
-    font-size: 0.75rem;
-    color: var(--text-dim);
-    font-family: 'Orbitron', sans-serif;
-    letter-spacing: 1px;
-  }
-
-  .portfolio-note {
-    margin-top: 36px;
-    padding: 16px 22px;
-    border: 1px dashed rgba(30, 123, 255, 0.3);
-    border-radius: 12px;
-    color: var(--text-dim);
-    font-size: 0.9rem;
-    text-align: center;
-    background: rgba(30, 123, 255, 0.03);
-  }
-  .portfolio-note i { color: var(--blue-soft); margin-right: 8px; }
-
-  /* ============ QUOTE FORM ============ */
-  .quote { background: linear-gradient(180deg, transparent, rgba(12, 12, 20, 0.5), transparent); }
-
-  .quote-wrap {
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 56px;
-    align-items: start;
-  }
-
-  .quote-info h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 800;
-    font-size: clamp(1.9rem, 3.4vw, 2.6rem);
-    line-height: 1.1;
-    margin-bottom: 16px;
-  }
-  .quote-info h2 .accent-p { color: var(--pink); }
-  .quote-info p { color: var(--text-dim); margin-bottom: 30px; }
-
-  .quote-info .feat {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    margin-bottom: 16px;
-  }
-  .quote-info .feat i {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
-    background: rgba(30, 123, 255, 0.1);
-    color: var(--blue-soft);
-    border: 1px solid rgba(30, 123, 255, 0.3);
-    flex-shrink: 0;
-  }
-  .quote-info .feat:nth-child(even) i {
-    background: rgba(255, 30, 136, 0.1);
-    color: var(--pink);
-    border-color: rgba(255, 30, 136, 0.3);
-  }
-  .quote-info .feat h5 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-    margin-bottom: 2px;
-  }
-  .quote-info .feat span { color: var(--text-dim); font-size: 0.92rem; }
-
-  .quote-form {
-    background: linear-gradient(145deg, rgba(22, 22, 32, 0.85), rgba(10, 10, 14, 0.95));
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 38px;
-    position: relative;
-    overflow: hidden;
-  }
-  .quote-form::before {
-    content: \"\";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--pink), var(--blue));
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-
-  .field { margin-bottom: 18px; }
-  .field.full { grid-column: 1 / -1; }
-  .field label {
-    display: block;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    color: var(--blue-soft);
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-  .field input, .field select, .field textarea {
-    width: 100%;
-    background: rgba(5, 5, 10, 0.7);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 14px 16px;
-    color: var(--text);
-    font-size: 0.98rem;
-    transition: border-color .25s ease, box-shadow .25s ease;
-    font-family: inherit;
-  }
-  .field textarea { resize: vertical; min-height: 110px; }
-  .field input:focus, .field select:focus, .field textarea:focus {
-    outline: none;
-    border-color: var(--pink);
-    box-shadow: 0 0 0 3px rgba(255, 30, 136, 0.18);
-  }
-  .field input::placeholder, .field textarea::placeholder { color: #55556b; }
-  .field select { appearance: none; background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23ff1e88' d='M6 8L0 0h12z'/%3E%3C/svg%3E\"); background-repeat: no-repeat; background-position: right 18px center; padding-right: 40px; }
-
-  .form-submit {
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-  }
-
-  .form-note {
-    text-align: center;
-    color: var(--text-dim);
-    font-size: 0.82rem;
-    margin-top: 14px;
-  }
-  .form-note i { color: #25d366; margin-right: 6px; }
-
-  /* ============ FOOTER ============ */
-  .footer {
-    border-top: 1px solid var(--border);
-    padding: 70px 0 30px;
-    background: rgba(5, 5, 10, 0.8);
-    position: relative;
-  }
-
-  .shipping-banner {
-    margin: 0 auto 40px;
-    padding: 18px 28px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 30, 136, 0.35);
-    background: rgba(255, 30, 136, 0.06);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    color: var(--pink);
-    text-transform: uppercase;
-    text-align: center;
-  }
-  .shipping-banner i {
-    font-size: 1.2rem;
-    animation: slide 2.4s ease-in-out infinite;
-  }
-  @keyframes slide {
-    0%, 100% { transform: translateX(0); }
-    50% { transform: translateX(6px); }
-  }
-
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 50px;
-  }
-
-  .footer h5 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.78rem;
-    letter-spacing: 3px;
-    color: var(--blue-soft);
-    margin-bottom: 18px;
-    text-transform: uppercase;
-  }
-
-  .footer p, .footer li { color: var(--text-dim); font-size: 0.93rem; }
-  .footer ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer a:hover { color: var(--pink); }
-
-  .footer .brand-tagline { color: var(--text-dim); margin-top: 14px; max-width: 320px; font-size: 0.93rem; }
-
-  .footer .contact-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 12px;
-  }
-  .footer .contact-item i {
-    color: var(--pink);
-    margin-top: 4px;
-    width: 18px;
-    text-align: center;
-  }
-
-  .footer-bottom {
-    border-top: 1px solid var(--border);
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    color: var(--text-dim);
-    font-size: 0.85rem;
-  }
-  .footer-bottom .socials { display: flex; gap: 14px; }
-  .footer-bottom .socials a {
-    width: 36px; height: 36px;
-    border-radius: 10px;
-    display: grid; place-items: center;
-    border: 1px solid var(--border);
-    color: var(--text-dim);
-    transition: all .25s ease;
-  }
-  .footer-bottom .socials a:hover {
-    border-color: var(--blue);
-    color: var(--blue-soft);
-    box-shadow: var(--shadow-blue);
-    transform: translateY(-3px);
-  }
-
-  /* ============ FLOATING WHATSAPP ============ */
-  .float-wa {
-    position: fixed;
-    bottom: 28px;
-    right: 28px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #25d366, #128c7e);
-    display: grid;
-    place-items: center;
-    color: #fff;
-    font-size: 1.6rem;
-    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.6);
-    z-index: 99;
-    animation: ring 2.2s infinite;
-    transition: transform .25s ease;
-  }
-  .float-wa:hover { transform: scale(1.1); }
-  @keyframes ring {
-    0%   { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.6); }
-    70%  { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4), 0 0 0 18px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0); }
-  }
-
-  /* ============ RESPONSIVE ============ */
-  @media (max-width: 960px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .hero-visual { max-width: 380px; justify-self: center; }
-    .quote-wrap { grid-template-columns: 1fr; gap: 36px; }
-    .footer-grid { grid-template-columns: 1fr 1fr; }
-  }
-
-  @media (max-width: 680px) {
-    .menu-toggle { display: block; }
-    .nav-links {
-      position: absolute;
-      top: 100%; left: 0; right: 0;
-      flex-direction: column;
-      gap: 0;
-      background: rgba(5,5,10,0.97);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-      padding: 10px 20px 20px;
-      transform: translateY(-120%);
-      transition: transform .3s ease;
-    }
-    .nav-links.open { transform: translateY(0); }
-    .nav-links a { padding: 14px 0; display: block; border-bottom: 1px solid var(--border); }
-    .nav-links li:last-child a { border-bottom: none; }
-
-    .section { padding: 70px 0; }
-    .hero { padding: 50px 0 70px; }
-    .hero-stats { gap: 26px; }
-    .form-row { grid-template-columns: 1fr; }
-    .quote-form { padding: 28px 22px; }
-    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-    .footer-bottom { justify-content: center; text-align: center; flex-direction: column; }
-    .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-    .float-wa { width: 54px; height: 54px; bottom: 20px; right: 20px; font-size: 1.4rem; }
-  }
-</style>
-</head>
-<body>
-
-<!-- =========== HEADER =========== -->
-<header class=\"header\">
-  <div class=\"container nav\">
-    <a href=\"#inicio\" class=\"logo\" aria-label=\"NeoFix Brasil\">
-      <span class=\"neo\">NEO</span><span class=\"fix\">FIX</span>
-      <span class=\"br\">BR</span>
-    </a>
-
-    <button class=\"menu-toggle\" id=\"menuToggle\" aria-label=\"Abrir menu\">
-      <i class=\"fa-solid fa-bars\"></i>
-    </button>
-
-    <ul class=\"nav-links\" id=\"navLinks\">
-      <li><a href=\"#inicio\">Início</a></li>
-      <li><a href=\"#servicos\">Serviços</a></li>
-      <li><a href=\"#loja\">Loja Mod</a></li>
-      <li><a href=\"#portfolio\">Portfólio</a></li>
-      <li><a href=\"#orcamento\">Orçamento</a></li>
-    </ul>
-  </div>
-</header>
-
-<!-- =========== HERO =========== -->
-<section class=\"hero\" id=\"inicio\">
-  <div class=\"container hero-grid\">
-    <div>
-      <span class=\"eyebrow\"><span class=\"dot\"></span> Tech · Modder · Multimarcas</span>
-      <h1>
-        Conserto <span class=\"grad\">qualquer eletrônico</span>.<br>
-        E deixo ele do <span class=\"grad\">seu jeito.</span>
-      </h1>
-      <p>Celulares, tablets, games, sons, notebooks, PCs — se liga na tomada ou tem bateria, a gente repara. Também criamos e vendemos peças modificadas e customizadas com pegada gamer/modder.</p>
-
-      <div class=\"btn-group\">
-        <a
-          class=\"btn-primary\"
-          href=\"https://wa.me/5544999187298?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento%20na%20NeoFix%20Brasil.\"
-          target=\"_blank\"
-          rel=\"noopener\">
-          <i class=\"fa-brands fa-whatsapp\"></i>
-          Orçamento via WhatsApp
-        </a>
-        <a class=\"btn-secondary\" href=\"#loja\">
-          <i class=\"fa-solid fa-bolt\"></i>
-          Ver Loja Mod
-        </a>
-      </div>
-
-      <div class=\"hero-stats\">
-        <div class=\"stat\"><strong>+500</strong><span>Consertos realizados</span></div>
-        <div class=\"stat\"><strong>100%</strong><span>Multimarcas</span></div>
-        <div class=\"stat\"><strong>BR</strong><span>Atendimento nacional</span></div>
-      </div>
-    </div>
-
-    <div class=\"hero-visual\" aria-hidden=\"true\">
-      <div class=\"ring\"></div>
-      <div class=\"ring r2\"></div>
-      <div class=\"ring r3\"></div>
-      <div class=\"core\"><i class=\"fa-solid fa-microchip\"></i></div>
-      <span class=\"chip c1\">// Mobile</span>
-      <span class=\"chip c2\">Modded</span>
-      <span class=\"chip c3\">Áudio · Games</span>
-      <span class=\"chip c4\">Custom RGB</span>
-    </div>
-  </div>
-</section>
-
-<!-- =========== SERVICES =========== -->
-<section class=\"section\" id=\"servicos\">
-  <div class=\"container\">
-    <div class=\"section-head\">
-      <span class=\"eyebrow\"><i class=\"fa-solid fa-screwdriver-wrench\"></i> Reparo Multimarcas</span>
-      <h2>Tudo que tem <span class=\"accent-p\">fio</span> ou <span class=\"accent-b\">bateria</span>, a gente resolve</h2>
-      <p>Atendemos todas as marcas e modelos. Diagnóstico técnico, orçamento honesto e reparo com garantia.</p>
-    </div>
-
-    <div class=\"services-grid\">
-      <article class=\"service-card\">
-        <div class=\"service-icon\"><i class=\"fa-solid fa-mobile-screen\"></i></div>
-        <h3>Celulares & Tablets</h3>
-        <p>Troca de tela, bateria, conector de carga, placa e software. Android e iOS.</p>
-      </article>
-
-      <article class=\"service-card\">
-        <div class=\"service-icon\"><i class=\"fa-solid fa-gamepad\"></i></div>
-        <h3>Videogames & Controles</h3>
-        <p>PlayStation, Xbox, Nintendo, portáteis. Reball, leitor ótico, HDMI, analog drift.</p>
-      </article>
-
-      <article class=\"service-card\">
-        <div class=\"service-icon\"><i class=\"fa-solid fa-laptop\"></i></div>
-        <h3>Notebooks & PCs</h3>
-        <p>Placa-mãe, tela, teclado, upgrade, formatação, limpeza térmica e otimização gamer.</p>
-      </article>
-
-      <article class=\"service-card\">
-        <div class=\"service-icon\"><i class=\"fa-solid fa-volume-high\"></i></div>
-        <h3>Áudio & Caixas de Som</h3>
-        <p>JBL, Bluetooth, home theaters, amplificadores. Troca de driver, bateria e placa.</p>
-      </article>
-
-      <article class=\"service-card\">
-        <div class=\"service-icon\"><i class=\"fa-solid fa-tv\"></i></div>
-        <h3>TVs & Monitores</h3>
-        <p>Backlight, T-CON, fonte, capacitores. Diagnóstico preciso em LED e OLED.</p>
-      </article>
-
-      <article class=\"service-card\">
-        <div class=\"service-icon\"><i class=\"fa-solid fa-headphones\"></i></div>
-        <h3>Periféricos & Headsets</h3>
-        <p>Teclados, mouses, fones, webcams. Reparo e restauração completa.</p>
-      </article>
-
-      <article class=\"service-card\">
-        <div class=\"service-icon\"><i class=\"fa-solid fa-camera\"></i></div>
-        <h3>Drones & Câmeras</h3>
-        <p>Reparo de placa, gimbal, lentes e baterias. Reset e calibração.</p>
-      </article>
-
-      <article class=\"service-card\">
-        <div class=\"service-icon\"><i class=\"fa-solid fa-plug-circle-bolt\"></i></div>
-        <h3>Outros Eletrônicos</h3>
-        <p>Tudo o que tem circuito: roteadores, fontes, chaves, carregadores, e mais.</p>
-      </article>
-    </div>
-
-    <div class=\"universal-strip\">
-      <i class=\"fa-solid fa-circle-check\"></i>
-      <p><strong>Regra NeoFix:</strong> se liga na tomada ou tem bateria, nós avaliamos. Orçamento sem compromisso antes de qualquer reparo.</p>
-    </div>
-  </div>
-</section>
-
-<!-- =========== MOD SHOP =========== -->
-<section class=\"section shop\" id=\"loja\">
-  <div class=\"container\">
-    <div class=\"section-head\">
-      <span class=\"eyebrow\"><i class=\"fa-solid fa-sparkles\"></i> Loja Mod · Itens Customizados</span>
-      <h2>Peças <span class=\"accent-p\">únicas</span>, feitas à mão no <span class=\"accent-b\">meu setup</span></h2>
-      <p>Produtos modificados, customizados e restaurados com pegada gamer/tech. Edições limitadas — quando sai, não volta.</p>
-    </div>
-
-    <div class=\"shop-grid\">
-      <article class=\"mod-card\">
-        <div class=\"mod-thumb\">
-          <span class=\"mod-badge\">Mod · v2</span>
-          <span class=\"mod-sold\">Limitado</span>
-          <i class=\"fa-solid fa-gamepad\"></i>
-        </div>
-        <div class=\"mod-body\">
-          <h3>Controle Custom RGB</h3>
-          <p>Controle modificado com LEDs internos reativos, grip antiderrapante e gatilhos customizados.</p>
-          <div class=\"mod-foot\">
-            <span class=\"mod-price\">R$ 549</span>
-            <a class=\"mod-buy\" href=\"https://wa.me/5544999187298?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Controle%20Custom%20RGB.\" target=\"_blank\" rel=\"noopener\">
-              <i class=\"fa-brands fa-whatsapp\"></i> Comprar
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class=\"mod-card\">
-        <div class=\"mod-thumb\">
-          <span class=\"mod-badge\">Mod · Neon</span>
-          <i class=\"fa-solid fa-keyboard\"></i>
-        </div>
-        <div class=\"mod-body\">
-          <h3>Teclado Mecânico Neon</h3>
-          <p>Mecânico 60%, keycaps PBT custom, iluminação rosa/azul e switches lubrificados.</p>
-          <div class=\"mod-foot\">
-            <span class=\"mod-price\">R$ 690</span>
-            <a class=\"mod-buy\" href=\"https://wa.me/5544999187298?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Teclado%20Mec%C3%A2nico%20Neon.\" target=\"_blank\" rel=\"noopener\">
-              <i class=\"fa-brands fa-whatsapp\"></i> Comprar
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class=\"mod-card\">
-        <div class=\"mod-thumb\">
-          <span class=\"mod-badge\">Mod · Pro</span>
-          <i class=\"fa-solid fa-computer-mouse\"></i>
-        </div>
-        <div class=\"mod-body\">
-          <h3>Mouse Gamer Modificado</h3>
-          <p>Sensor de precisão, switches hot-swap, skates de PTFE e iluminação personalizada.</p>
-          <div class=\"mod-foot\">
-            <span class=\"mod-price\">R$ 349</span>
-            <a class=\"mod-buy\" href=\"https://wa.me/5544999187298?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Mouse%20Gamer%20Modificado.\" target=\"_blank\" rel=\"noopener\">
-              <i class=\"fa-brands fa-whatsapp\"></i> Comprar
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class=\"mod-card\">
-        <div class=\"mod-thumb\">
-          <span class=\"mod-badge\">Mod · Retro</span>
-          <i class=\"fa-solid fa-volume-high\"></i>
-        </div>
-        <div class=\"mod-body\">
-          <h3>Caixa JBL Restaurada</h3>
-          <p>Restaurada, repaginada e com bateria turbinada. Acabamento em vinil gamer.</p>
-          <div class=\"mod-foot\">
-            <span class=\"mod-price\">R$ 420</span>
-            <a class=\"mod-buy\" href=\"https://wa.me/5544999187298?text=Ol%C3%A1%2C%20tenho%20interesse%20na%20Caixa%20JBL%20Restaurada.\" target=\"_blank\" rel=\"noopener\">
-              <i class=\"fa-brands fa-whatsapp\"></i> Comprar
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class=\"mod-card\">
-        <div class=\"mod-thumb\">
-          <span class=\"mod-badge\">Mod · Arcade</span>
-          <i class=\"fa-solid fa-joystick\"></i>
-        </div>
-        <div class=\"mod-body\">
-          <h3>Console Retrô Mod</h3>
-          <p>Emulador all-in-one com case custom, mais de 10 mil jogos e saída HDMI FullHD.</p>
-          <div class=\"mod-foot\">
-            <span class=\"mod-price\">R$ 799</span>
-            <a class=\"mod-buy\" href=\"https://wa.me/5544999187298?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Console%20Retr%C3%B4%20Mod.\" target=\"_blank\" rel=\"noopener\">
-              <i class=\"fa-brands fa-whatsapp\"></i> Comprar
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <article class=\"mod-card\">
-        <div class=\"mod-thumb\">
-          <span class=\"mod-badge\">Mod · Studio</span>
-          <i class=\"fa-solid fa-headphones\"></i>
-        </div>
-        <div class=\"mod-body\">
-          <h3>Headset Custom</h3>
-          <p>Almofadas premium, cabo reforçado, pintura em tons neon e driver aprimorado.</p>
-          <div class=\"mod-foot\">
-            <span class=\"mod-price\">R$ 379</span>
-            <a class=\"mod-buy\" href=\"https://wa.me/5544999187298?text=Ol%C3%A1%2C%20tenho%20interesse%20no%20Headset%20Custom.\" target=\"_blank\" rel=\"noopener\">
-              <i class=\"fa-brands fa-whatsapp\"></i> Comprar
-            </a>
-          </div>
-        </div>
-      </article>
-    </div>
-
-    <p class=\"portfolio-note\">
-      <i class=\"fa-solid fa-circle-info\"></i>
-      Vitrine demonstrativa. Substitua os nomes, preços e imagens pelos seus itens reais.
-    </p>
-  </div>
-</section>
-
-<!-- =========== PORTFOLIO =========== -->
-<section class=\"section\" id=\"portfolio\">
-  <div class=\"container\">
-    <div class=\"section-head\">
-      <span class=\"eyebrow\"><i class=\"fa-solid fa-image\"></i> Galeria · Antes & Depois</span>
-      <h2>Transformações <span class=\"accent-p\">reais</span> na bancada</h2>
-      <p>Do celular destruído ao setup dos sonhos — aqui vão resultados de consertos e customizações feitas por mim.</p>
-    </div>
-
-    <div class=\"portfolio-grid\">
-      <div class=\"ba-card\">
-        <div class=\"ba-viewport\">
-          <div class=\"ba-half before\"><span class=\"ba-label\">ANTES</span><i class=\"fa-solid fa-mobile-screen-button\"></i></div>
-          <div class=\"ba-half after\"><span class=\"ba-label\">DEPOIS</span><i class=\"fa-solid fa-circle-check\"></i></div>
-        </div>
-        <div class=\"ba-caption\"><h4>Celular · Tela Quebrada</h4><span>Troca OLED</span></div>
-      </div>
-
-      <div class=\"ba-card\">
-        <div class=\"ba-viewport\">
-          <div class=\"ba-half before\"><span class=\"ba-label\">ANTES</span><i class=\"fa-solid fa-gamepad\"></i></div>
-          <div class=\"ba-half after\"><span class=\"ba-label\">DEPOIS</span><i class=\"fa-solid fa-bolt-lightning\"></i></div>
-        </div>
-        <div class=\"ba-caption\"><h4>Controle PS5</h4><span>Reparo + Mod RGB</span></div>
-      </div>
-
-      <div class=\"ba-card\">
-        <div class=\"ba-viewport\">
-          <div class=\"ba-half before\"><span class=\"ba-label\">ANTES</span><i class=\"fa-solid fa-volume-high\"></i></div>
-          <div class=\"ba-half after\"><span class=\"ba-label\">DEPOIS</span><i class=\"fa-solid fa-wand-magic-sparkles\"></i></div>
-        </div>
-        <div class=\"ba-caption\"><h4>JBL Charge</h4><span>Restauração Total</span></div>
-      </div>
-
-      <div class=\"ba-card\">
-        <div class=\"ba-viewport\">
-          <div class=\"ba-half before\"><span class=\"ba-label\">ANTES</span><i class=\"fa-solid fa-laptop\"></i></div>
-          <div class=\"ba-half after\"><span class=\"ba-label\">DEPOIS</span><i class=\"fa-solid fa-microchip\"></i></div>
-        </div>
-        <div class=\"ba-caption\"><h4>Notebook Gamer</h4><span>Reballing BGA</span></div>
-      </div>
-
-      <div class=\"ba-card\">
-        <div class=\"ba-viewport\">
-          <div class=\"ba-half before\"><span class=\"ba-label\">ANTES</span><i class=\"fa-solid fa-tv\"></i></div>
-          <div class=\"ba-half after\"><span class=\"ba-label\">DEPOIS</span><i class=\"fa-solid fa-display\"></i></div>
-        </div>
-        <div class=\"ba-caption\"><h4>TV 50\" Sem Imagem</h4><span>Troca Backlight</span></div>
-      </div>
-
-      <div class=\"ba-card\">
-        <div class=\"ba-viewport\">
-          <div class=\"ba-half before\"><span class=\"ba-label\">ANTES</span><i class=\"fa-solid fa-keyboard\"></i></div>
-          <div class=\"ba-half after\"><span class=\"ba-label\">DEPOIS</span><i class=\"fa-solid fa-sparkles\"></i></div>
-        </div>
-        <div class=\"ba-caption\"><h4>Teclado Mecânico</h4><span>Mod Custom RGB</span></div>
-      </div>
-    </div>
-
-    <p class=\"portfolio-note\">
-      <i class=\"fa-solid fa-circle-info\"></i>
-      Substitua os placeholders por fotos reais dos seus antes/depois.
-    </p>
-  </div>
-</section>
-
-<!-- =========== QUOTE FORM =========== -->
-<section class=\"section quote\" id=\"orcamento\">
-  <div class=\"container quote-wrap\">
-    <div class=\"quote-info\">
-      <span class=\"eyebrow\"><i class=\"fa-solid fa-file-lines\"></i> Orçamento Rápido</span>
-      <h2>Descreva seu problema.<br>Te <span class=\"accent-p\">respondo no WhatsApp</span>.</h2>
-      <p>Preencha os dados e, ao enviar, o formulário abre o WhatsApp já com sua mensagem prontinha — você só aperta enviar.</p>
-
-      <div class=\"feat\">
-        <i class=\"fa-solid fa-bolt\"></i>
-        <div><h5>Resposta Rápida</h5><span>Retornamos em horário comercial.</span></div>
-      </div>
-      <div class=\"feat\">
-        <i class=\"fa-solid fa-shield-halved\"></i>
-        <div><h5>Orçamento Gratuito</h5><span>Sem compromisso. Só paga se aprovar.</span></div>
-      </div>
-      <div class=\"feat\">
-        <i class=\"fa-solid fa-truck-fast\"></i>
-        <div><h5>Atendemos o Brasil</h5><span>Envio via Correios com rastreio.</span></div>
-      </div>
-      <div class=\"feat\">
-        <i class=\"fa-solid fa-clock\"></i>
-        <div><h5>Horário</h5><span>Seg–Sex 13h30–18h30 · Sáb 09h–12h</span></div>
-      </div>
-    </div>
-
-    <form class=\"quote-form\" id=\"quoteForm\" onsubmit=\"return sendQuote(event)\">
-      <div class=\"form-row\">
-        <div class=\"field\">
-          <label for=\"f-nome\">Nome</label>
-          <input type=\"text\" id=\"f-nome\" name=\"nome\" placeholder=\"Seu nome\" required />
-        </div>
-        <div class=\"field\">
-          <label for=\"f-fone\">WhatsApp</label>
-          <input type=\"tel\" id=\"f-fone\" name=\"fone\" placeholder=\"(00) 00000-0000\" required />
-        </div>
-      </div>
-
-      <div class=\"form-row\">
-        <div class=\"field\">
-          <label for=\"f-tipo\">Tipo de serviço</label>
-          <select id=\"f-tipo\" name=\"tipo\" required>
-            <option value=\"\" disabled selected>Selecione...</option>
-            <option>Reparo · Celular / Tablet</option>
-            <option>Reparo · Videogame / Controle</option>
-            <option>Reparo · Notebook / PC</option>
-            <option>Reparo · Áudio / Caixa de Som</option>
-            <option>Reparo · TV / Monitor</option>
-            <option>Reparo · Outro eletrônico</option>
-            <option>Compra · Item da Loja Mod</option>
-            <option>Customização / Mod sob medida</option>
-          </select>
-        </div>
-        <div class=\"field\">
-          <label for=\"f-equip\">Equipamento / Modelo</label>
-          <input type=\"text\" id=\"f-equip\" name=\"equip\" placeholder=\"Ex: iPhone 13, PS5, TV LG 50'\" required />
-        </div>
-      </div>
-
-      <div class=\"field full\">
-        <label for=\"f-msg\">Descreva o problema ou o mod desejado</label>
-        <textarea id=\"f-msg\" name=\"msg\" placeholder=\"Conte o que aconteceu, defeito, ideia de customização...\" required></textarea>
-      </div>
-
-      <button type=\"submit\" class=\"btn-primary form-submit\">
-        <i class=\"fa-brands fa-whatsapp\"></i>
-        Enviar no WhatsApp
-      </button>
-      <p class=\"form-note\"><i class=\"fa-brands fa-whatsapp\"></i> Ao enviar, o WhatsApp abre com sua mensagem pronta.</p>
-    </form>
-  </div>
-</section>
-
-<!-- =========== FOOTER =========== -->
-<footer class=\"footer\">
-  <div class=\"container\">
-
-    <div class=\"shipping-banner\">
-      <i class=\"fa-solid fa-truck-fast\"></i>
-      Atendemos via Correios para todo o Brasil
-    </div>
-
-    <div class=\"footer-grid\">
-      <div>
-        <div class=\"logo\">
-          <span class=\"neo\">NEO</span><span class=\"fix\">FIX</span>
-          <span class=\"br\">BR</span>
-        </div>
-        <p class=\"brand-tagline\">Assistência técnica multimarcas + loja de itens modificados. Tecnologia com pegada gamer/modder. Cada reparo é uma missão, cada mod é exclusivo.</p>
-      </div>
-
-      <div>
-        <h5>Contato</h5>
-        <div class=\"contact-item\"><i class=\"fa-brands fa-whatsapp\"></i><span>(44) 99918-7298</span></div>
-        <div class=\"contact-item\"><i class=\"fa-solid fa-envelope\"></i><span>contato@neofixbrasil.com</span></div>
-        <div class=\"contact-item\"><i class=\"fa-solid fa-location-dot\"></i><span>Atendimento nacional<br>via Correios</span></div>
-      </div>
-
-      <div>
-        <h5>Horário</h5>
-        <ul>
-          <li><strong style=\"color:var(--blue-soft)\">Seg — Sex</strong></li>
-          <li>13:30 às 18:30</li>
-          <li style=\"margin-top:10px\"><strong style=\"color:var(--pink)\">Sábado</strong></li>
-          <li>09:00 às 12:00</li>
-        </ul>
-      </div>
-
-      <div>
-        <h5>Navegação</h5>
-        <ul>
-          <li><a href=\"#inicio\">Início</a></li>
-          <li><a href=\"#servicos\">Serviços</a></li>
-          <li><a href=\"#loja\">Loja Mod</a></li>
-          <li><a href=\"#portfolio\">Portfólio</a></li>
-          <li><a href=\"#orcamento\">Orçamento</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class=\"footer-bottom\">
-      <span>© 2025 NeoFix Brasil — Todos os direitos reservados.</span>
-      <div class=\"socials\">
-        <a href=\"https://wa.me/5544999187298\" target=\"_blank\" rel=\"noopener\" aria-label=\"WhatsApp\"><i class=\"fa-brands fa-whatsapp\"></i></a>
-        <a href=\"#\" aria-label=\"Instagram\"><i class=\"fa-brands fa-instagram\"></i></a>
-        <a href=\"#\" aria-label=\"TikTok\"><i class=\"fa-brands fa-tiktok\"></i></a>
-        <a href=\"mailto:contato@neofixbrasil.com\" aria-label=\"Email\"><i class=\"fa-solid fa-envelope\"></i></a>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Floating WhatsApp -->
-<a
-  class=\"float-wa\"
-  href=\"https://wa.me/5544999187298?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento%20na%20NeoFix%20Brasil.\"
-  target=\"_blank\"
-  rel=\"noopener\"
-  aria-label=\"Fale conosco no WhatsApp\">
-  <i class=\"fa-brands fa-whatsapp\"></i>
-</a>
-
-<script>
-  // --- Config WhatsApp (edite aqui se mudar o número) ---
-  const WHATSAPP_NUMBER = \"5544999187298\";
-
-  // Mobile menu toggle
-  const toggle = document.getElementById('menuToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    links.classList.toggle('open');
-    const icon = toggle.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-xmark');
-  });
-  document.querySelectorAll('#navLinks a').forEach(a => {
-    a.addEventListener('click', () => {
-      links.classList.remove('open');
-      const icon = toggle.querySelector('i');
-      icon.classList.add('fa-bars');
-      icon.classList.remove('fa-xmark');
-    });
-  });
-
-  // Quote form -> WhatsApp
-  function sendQuote(e) {
-    e.preventDefault();
-    const f = e.target;
-    const nome  = f.nome.value.trim();
-    const fone  = f.fone.value.trim();
-    const tipo  = f.tipo.value;
-    const equip = f.equip.value.trim();
-    const msg   = f.msg.value.trim();
-
-    const texto =
-`*Novo Orçamento - NeoFix Brasil*
-
-*Nome:* ${nome}
-*WhatsApp:* ${fone}
-*Serviço:* ${tipo}
-*Equipamento:* ${equip}
-
-*Descrição:*
-${msg}`;
-
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`;
-    window.open(url, '_blank');
-    return false;
-  }
-</script>
-
-</body>
-</html>
-"
+    margin-bottom: 18px
